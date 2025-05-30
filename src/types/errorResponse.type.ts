@@ -1,9 +1,6 @@
-import type { AxiosError, AxiosResponse } from "axios";
+import type { AxiosError } from "axios";
 
-export type ErrorResponseType = AxiosError & {
-  response: AxiosResponse<{
-    statusCode: number;
-    message: string;
-    error: string;
-  }>;
-};
+export type ErrorResponseType = AxiosError<{
+  message?: string;
+  errors?: { message: string }[];
+}>;

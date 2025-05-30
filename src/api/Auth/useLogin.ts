@@ -4,11 +4,15 @@ import { toast } from "react-toastify";
 import type { LoginData } from "types";
 
 interface JwtResponse {
-  token: string;
+  data: {
+    userId: number;
+    token: string;
+  };
 }
 
 const login = async (loginData: LoginData) => {
-  return api.post<LoginData, JwtResponse>("/login", loginData);
+  const response = api.post<LoginData, JwtResponse>("/login", loginData);
+  return response;
 };
 
 export const useLogin = () => {
@@ -16,8 +20,8 @@ export const useLogin = () => {
     mutationFn: login,
     mutationKey: ["login"],
 
-    onSuccess: (data: JwtResponse) => {
-      localStorage.setItem("jwt", data.token);
+    onSuccess: (responseData: JwtResponse) => {
+      localStorage.setItem("jwt", responseData.data.token);
       toast.success("Successfully logged in");
     },
     onError: (error: string) => {
