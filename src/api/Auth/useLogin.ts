@@ -11,8 +11,7 @@ interface JwtResponse {
 }
 
 const login = async (loginData: LoginData) => {
-  const response = api.post<LoginData, JwtResponse>("/login", loginData);
-  return response;
+  return api.post<LoginData, JwtResponse>("/login", loginData);
 };
 
 export const useLogin = () => {

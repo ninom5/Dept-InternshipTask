@@ -29,7 +29,8 @@
       "@api/*": ["api/*"],
       "@pages/*": ["pages/*"],
       "@routes/*": ["routes/*"],
-      "@types/*": ["types/*"]
+      "@types/*": ["types/*"],
+      "@layouts/*": ["layouts/*"]
     }
   },
   "include": ["src"]

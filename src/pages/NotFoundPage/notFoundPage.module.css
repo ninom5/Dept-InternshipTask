@@ -1,0 +1,35 @@
+.notFoundPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.notFoundPage h1 {
+  font-size: 200px;
+}
+.notFoundPage h3 {
+  font-size: 75px;
+}
+
+.buttonWrapper {
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.buttonWrapper button {
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.7s;
+}
+.buttonWrapper button:hover {
+  background-color: black;
+  color: white;
+}
