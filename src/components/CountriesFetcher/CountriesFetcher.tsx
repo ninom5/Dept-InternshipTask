@@ -1,6 +1,7 @@
 import { useFetchCountries } from "@api/index";
 import type { CountryType } from "types";
 import React, { useEffect, useState } from "react";
+import { CountriesList } from "@components/index";
 
 export const CountriesFetcher = () => {
   const { mutateAsync: fetchCountries } = useFetchCountries();
@@ -36,6 +37,8 @@ export const CountriesFetcher = () => {
       </select>
 
       <button onClick={() => handleClick()}>Get countries</button>
+
+      <CountriesList countries={countries} />
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import {
   CountriesFetcher,
-  CountriesList,
+  // CountriesList,
   UserCountriesList,
 } from "@components/index";
 
@@ -11,7 +11,7 @@ export const CountriesPage = () => {
 
       <CountriesFetcher />
 
-      <CountriesList />
+      {/* <CountriesList /> */}
       <UserCountriesList />
     </section>
   );

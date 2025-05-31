@@ -4,3 +4,4 @@ export * from "./Header/Header";
 export * from "./UserCountriesList/UserCountriesList";
 export * from "./CountriesList/CountriesList";
 export * from "./CountriesFetcher/CountriesFetcher";
+export * from "./CountryCard/CountryCard";
