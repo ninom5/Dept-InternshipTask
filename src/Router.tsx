@@ -20,7 +20,6 @@ export const Router = () => {
 
           <Route element={<ProtectedRoute />}>
             <Route path={routes.COUNTRIES} element={<CountriesPage />} />
-
             <Route path={routes.COUNTRY} element={<CountryPage />} />
           </Route>
         </Route>
