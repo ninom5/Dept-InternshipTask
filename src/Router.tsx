@@ -1,4 +1,10 @@
-import { CountriesPage, HomePage, LoginPage, NotFoundPage } from "@pages/index";
+import {
+  CountriesPage,
+  CountryPage,
+  HomePage,
+  LoginPage,
+  NotFoundPage,
+} from "@pages/index";
 import { routes } from "@routes/index";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "@components/index";
@@ -14,6 +20,8 @@ export const Router = () => {
 
           <Route element={<ProtectedRoute />}>
             <Route path={routes.COUNTRIES} element={<CountriesPage />} />
+
+            <Route path={routes.COUNTRY} element={<CountryPage />} />
           </Route>
         </Route>
 

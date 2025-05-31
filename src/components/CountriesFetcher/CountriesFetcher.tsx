@@ -1,7 +1,8 @@
 import { useFetchCountries } from "@api/index";
 import type { CountryType } from "types";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CountriesList } from "@components/index";
+import s from "./countriesFetcher.module.css";
 
 export const CountriesFetcher = () => {
   const { mutateAsync: fetchCountries } = useFetchCountries();
@@ -10,7 +11,6 @@ export const CountriesFetcher = () => {
 
   const handleClick = async () => {
     const data = await fetchCountries(limit);
-    console.log(data.data);
     setCountries(data.data);
   };
 
@@ -18,25 +18,25 @@ export const CountriesFetcher = () => {
     setLimit(Number(e.target.value));
   };
 
-  useEffect(() => {
-    console.log(countries);
-    console.log(limit);
-  }, [countries, limit]);
-
   return (
-    <section>
-      <select defaultValue="" onChange={handleLimitChange}>
-        <option value="" disabled>
-          Select limit
-        </option>
-        {[...Array(10)].map((_, i) => (
-          <option key={i + 1} value={i + 1}>
-            {i + 1}
+    <section className={s.countriesFetcher}>
+      <div className={s.fetchControls}>
+        <h1>Countries</h1>
+        <select defaultValue="" onChange={handleLimitChange}>
+          <option value="" disabled>
+            Select limit
           </option>
-        ))}
-      </select>
+          {[...Array(10)].map((_, i) => (
+            <option key={i + 1} value={i + 1}>
+              {i + 1}
+            </option>
+          ))}
+        </select>
 
-      <button onClick={() => handleClick()}>Get countries</button>
+        <button onClick={() => handleClick()} className={s.fetchButton}>
+          Get countries
+        </button>
+      </div>
 
       <CountriesList countries={countries} />
     </section>

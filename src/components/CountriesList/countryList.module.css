@@ -1,0 +1,9 @@
+.countriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+  padding: 20px;
+  height: 70vh;
+  overflow: hidden auto;
+}

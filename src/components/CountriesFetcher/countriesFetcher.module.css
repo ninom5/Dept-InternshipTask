@@ -1,0 +1,40 @@
+.countriesFetcher {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 20px;
+}
+
+.fetchControls {
+  display: inherit;
+  flex-direction: inherit;
+  padding: 20px;
+  gap: 30px;
+}
+
+.fetchControls select {
+  width: 25%;
+  padding: 10px 20px;
+  height: auto;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  background-color: black;
+  color: whitesmoke;
+}
+
+.fetchButton {
+  width: 25%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  color: black;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.fetchButton:hover {
+  background-color: black;
+  color: whitesmoke;
+  scale: 1.05;
+}

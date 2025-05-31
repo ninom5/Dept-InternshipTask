@@ -1,0 +1,36 @@
+.countryCard {
+  display: flex;
+  padding: 20px;
+  width: 90%;
+  gap: 20px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.flagImgWrapper {
+  width: 40%;
+  height: auto;
+  border-radius: 7px;
+}
+.flagImgWrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+.countryInfo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.heartIcon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 25px;
+}
