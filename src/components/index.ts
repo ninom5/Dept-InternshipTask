@@ -6,3 +6,4 @@ export * from "./CountriesFetcher/CountriesFetcher";
 export * from "./CountryCard/CountryCard";
 export * from "./ErrorFallback/ErrorFallback";
 export * from "./Spinner/Spinner";
+export * from "./GoogleMap/GoogleMap";

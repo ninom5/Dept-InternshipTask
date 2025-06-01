@@ -1,4 +1,4 @@
-import { CountriesFetcher, CountriesList } from "@components/index";
+import { CountriesFetcher, CountriesList, GoogleMap } from "@components/index";
 import s from "./countriesPage.module.css";
 import { useEffect, useState } from "react";
 
@@ -30,6 +30,8 @@ export const CountriesPage = () => {
   return (
     <section className={s.countriesPage}>
       <CountriesFetcher />
+
+      <GoogleMap />
 
       <div className={s.favoriteListWrapper}>
         <h2>Your favorite countries</h2>

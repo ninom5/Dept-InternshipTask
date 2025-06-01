@@ -1,0 +1,15 @@
+.mapWrapper {
+  position: relative;
+  padding: 10px;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mapWrapperInner {
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  height: 70%;
+}
