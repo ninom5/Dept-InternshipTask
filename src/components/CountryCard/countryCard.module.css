@@ -6,6 +6,8 @@
   border: 1px solid lightgray;
   border-radius: 8px;
   cursor: pointer;
+  background-color: white;
+  color: var(--bg-color);
 }
 
 .flagImgWrapper {

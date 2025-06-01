@@ -31,7 +31,7 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
-      <h2>Login Form</h2>
+      <h2>Login</h2>
       <div className={s.formGroup}>
         <label htmlFor="email" className={s.label}>
           Email

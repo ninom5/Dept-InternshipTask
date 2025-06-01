@@ -7,20 +7,20 @@
 
 .fetchControls {
   display: inherit;
-  flex-direction: inherit;
   padding: 20px;
   gap: 30px;
+  align-items: center;
 }
 
 .fetchControls select {
   width: 25%;
   padding: 10px 20px;
   height: auto;
-  border: none;
+  /* border: none; */
   border-radius: 7px;
   cursor: pointer;
-  background-color: black;
-  color: whitesmoke;
+  /* background-color: blue;
+  color: whitesmoke; */
 }
 
 .fetchButton {

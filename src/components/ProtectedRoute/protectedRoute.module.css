@@ -1,0 +1,11 @@
+.unauthorized {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 300px;
+}
+
+.loginLink {
+  color: var(--text-color);
+}

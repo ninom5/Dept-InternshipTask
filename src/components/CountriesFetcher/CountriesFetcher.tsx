@@ -21,7 +21,7 @@ export const CountriesFetcher = () => {
   return (
     <section className={s.countriesFetcher}>
       <div className={s.fetchControls}>
-        <h1>Countries</h1>
+        <h1>Countries fetcher</h1>
         <select defaultValue="" onChange={handleLimitChange}>
           <option value="" disabled>
             Select limit

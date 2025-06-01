@@ -10,7 +10,7 @@
 
 .navItem {
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
   cursor: pointer;
   position: relative;
   transition: 0.7s;
@@ -20,7 +20,7 @@
   position: absolute;
   bottom: -5px;
   left: 0;
-  background-color: black;
+  background-color: var(--text-color);
   height: 2px;
   width: 0;
   transition: 0.7s;

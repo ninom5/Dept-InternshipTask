@@ -1,15 +1,20 @@
 import { routes } from "@routes/index";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import s from "./protectedRoute.module.css";
 
 export const ProtectedRoute = () => {
   const token = localStorage.getItem("jwt");
 
   if (!token || token.trim() === "")
     return (
-      <div>
+      <div className={s.unauthorized}>
         <h1>Unauthorized</h1>
         <p>
-          Please <a href={routes.LOGIN}>login</a> to continue
+          Please{" "}
+          <Link to={routes.LOGIN} className={s.loginLink}>
+            login
+          </Link>{" "}
+          to continue
         </p>
       </div>
     );
