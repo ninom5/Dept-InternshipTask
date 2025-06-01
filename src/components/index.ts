@@ -5,3 +5,4 @@ export * from "./CountriesList/CountriesList";
 export * from "./CountriesFetcher/CountriesFetcher";
 export * from "./CountryCard/CountryCard";
 export * from "./ErrorFallback/ErrorFallback";
+export * from "./Spinner/Spinner";

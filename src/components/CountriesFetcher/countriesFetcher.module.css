@@ -16,11 +16,13 @@
   width: 25%;
   padding: 10px 20px;
   height: auto;
-  /* border: none; */
   border-radius: 7px;
   cursor: pointer;
-  /* background-color: blue;
-  color: whitesmoke; */
+}
+.fetchControls select:hover {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  transition: 0.7s;
 }
 
 .fetchButton {
@@ -34,7 +36,7 @@
   transition: 0.5s;
 }
 .fetchButton:hover {
-  background-color: black;
+  background-color: var(--accent-color);
   color: whitesmoke;
   scale: 1.05;
 }

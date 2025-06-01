@@ -15,12 +15,15 @@
   position: relative;
   transition: 0.7s;
 }
+.navItem:hover {
+  color: var(--accent-color);
+}
 .navItem::after {
   content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
-  background-color: var(--text-color);
+  background-color: var(--accent-color);
   height: 2px;
   width: 0;
   transition: 0.7s;

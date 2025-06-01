@@ -1,14 +1,14 @@
 import { useFetchCountries } from "@api/index";
 import type { CountryType } from "types";
 import React, { useState } from "react";
-import { CountriesList } from "@components/index";
+import { CountriesList, Spinner } from "@components/index";
 import s from "./countriesFetcher.module.css";
 
 export const CountriesFetcher = () => {
   const [limit, setLimit] = useState<number | undefined>(undefined);
   const [countries, setCountries] = useState<CountryType[]>([]);
 
-  const { mutateAsync: fetchCountries } = useFetchCountries();
+  const { mutateAsync: fetchCountries, isPending } = useFetchCountries();
 
   const handleClick = async () => {
     const data = await fetchCountries(limit);
@@ -23,6 +23,7 @@ export const CountriesFetcher = () => {
     <section className={s.countriesFetcher}>
       <div className={s.fetchControls}>
         <h1>Countries fetcher</h1>
+
         <select defaultValue="" onChange={handleLimitChange}>
           <option value="" disabled>
             Select limit
@@ -39,7 +40,7 @@ export const CountriesFetcher = () => {
         </button>
       </div>
 
-      <CountriesList countries={countries} />
+      {isPending ? <Spinner /> : <CountriesList countries={countries} />}
     </section>
   );
 };

@@ -8,6 +8,10 @@
   cursor: pointer;
   background-color: white;
   color: var(--bg-color);
+  transition: 1s;
+}
+.countryCard:hover {
+  scale: 1.04;
 }
 
 .flagImgWrapper {
