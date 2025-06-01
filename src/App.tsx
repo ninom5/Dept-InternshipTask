@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ErrorFallback } from "@components/index";
 import { GooglAPIProvider } from "@components/GoogleMapsApiProvider/GoogleMapsApiProvider";
+import { MapProvider } from "context/MapProvider";
 
 function App() {
   const queryClient = new QueryClient();
@@ -11,8 +12,10 @@ function App() {
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <QueryClientProvider client={queryClient}>
         <GooglAPIProvider>
-          <Router />
-          <ToastContainer />
+          <MapProvider>
+            <Router />
+            <ToastContainer />
+          </MapProvider>
         </GooglAPIProvider>
       </QueryClientProvider>
     </ErrorBoundary>

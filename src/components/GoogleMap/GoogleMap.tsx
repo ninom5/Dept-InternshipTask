@@ -1,7 +1,17 @@
-import { Map } from "@vis.gl/react-google-maps";
+import { Map, useMap } from "@vis.gl/react-google-maps";
 import s from "./googleMap.module.css";
+import { useMapContext } from "@hooks/useMapContext";
+import { useEffect } from "react";
 
 export const GoogleMap = () => {
+  const { setMap } = useMapContext();
+  const map = useMap();
+
+  useEffect(() => {
+    console.log("map from useMap():", map);
+    if (map && setMap) setMap(map);
+  }, [map, setMap]);
+
   return (
     <section className={s.mapWrapper}>
       <div className={s.mapWrapperInner}>

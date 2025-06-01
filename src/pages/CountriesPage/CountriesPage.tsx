@@ -29,9 +29,11 @@ export const CountriesPage = () => {
 
   return (
     <section className={s.countriesPage}>
-      <CountriesFetcher />
+      <div className={s.listMapWrapper}>
+        <CountriesFetcher />
 
-      <GoogleMap />
+        <GoogleMap />
+      </div>
 
       <div className={s.favoriteListWrapper}>
         <h2>Your favorite countries</h2>

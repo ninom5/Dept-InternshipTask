@@ -1,7 +1,7 @@
 import { MapContext } from "context/MapContext";
 import { useContext } from "react";
 
-export const useMap = () => {
+export const useMapContext = () => {
   const context = useContext(MapContext);
 
   if (!context)

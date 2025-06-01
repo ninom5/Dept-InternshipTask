@@ -1,12 +1,18 @@
 .countriesPage {
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: space-between;
 }
 
+.listMapWrapper {
+  display: flex;
+  width: 100%;
+}
+
 .favoriteListWrapper {
   padding: 20px;
-  width: 35%;
+  width: 40%;
 }
 .favoriteListWrapper h2 {
   text-align: center;

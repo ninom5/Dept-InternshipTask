@@ -31,7 +31,8 @@
       "@routes/*": ["routes/*"],
       "@types/*": ["types/*"],
       "@layouts/*": ["layouts/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "include": ["src"]
