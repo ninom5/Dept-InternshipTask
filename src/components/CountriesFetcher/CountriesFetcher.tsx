@@ -1,6 +1,7 @@
 import { useFetchCountries } from "@api/index";
 import type { CountryType } from "types";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import throttle from "lodash.throttle";
 import { CountriesList, Spinner } from "@components/index";
 import s from "./countriesFetcher.module.css";
 
@@ -10,10 +11,22 @@ export const CountriesFetcher = () => {
 
   const { mutateAsync: fetchCountries, isPending } = useFetchCountries();
 
-  const handleClick = async () => {
+  const handleClick = useCallback(async () => {
     const data = await fetchCountries(limit);
     setCountries(data.data);
-  };
+  }, [fetchCountries, limit]);
+
+  const throttleRef = useRef<ReturnType<typeof throttle>>(null);
+
+  useEffect(() => {
+    throttleRef.current = throttle(() => {
+      handleClick();
+    }, 1200);
+
+    return () => {
+      throttleRef.current?.cancel();
+    };
+  }, [handleClick]);
 
   const handleLimitChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLimit(Number(e.target.value));
@@ -35,7 +48,11 @@ export const CountriesFetcher = () => {
           ))}
         </select>
 
-        <button onClick={() => handleClick()} className={s.fetchButton}>
+        <button
+          onClick={() => throttleRef.current?.()}
+          className={s.fetchButton}
+          disabled={isPending}
+        >
           Get countries
         </button>
       </div>

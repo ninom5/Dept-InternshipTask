@@ -16,7 +16,7 @@
   width: 25%;
   padding: 10px 20px;
   height: auto;
-  border-radius: 7px;
+  border-radius: 8px;
   cursor: pointer;
 }
 .fetchControls select:hover {
