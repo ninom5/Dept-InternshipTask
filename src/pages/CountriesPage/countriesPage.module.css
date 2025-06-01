@@ -1,0 +1,10 @@
+.countriesPage {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.favoriteListWrapper {
+  padding: 20px;
+  width: 35%;
+}

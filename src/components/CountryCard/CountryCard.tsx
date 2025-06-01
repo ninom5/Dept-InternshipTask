@@ -22,12 +22,23 @@ export const CountryCard = ({ country }: { country: CountryType }) => {
     );
     const isAlreadyFav = favorites.some((fav) => fav.code === country.code);
 
+    if (
+      !confirm(
+        isAlreadyFav
+          ? `Do you really want to remove country: ${country.name} from favorites?`
+          : `Do you want to add country: ${country.name} to favorites?`
+      )
+    )
+      return;
+
     let updatedFavorites = isAlreadyFav
       ? favorites.filter((c) => c.code !== country.code)
       : [...favorites, country];
 
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     setIsFavorite(!isAlreadyFav);
+
+    window.dispatchEvent(new Event("favUpdated"));
   };
 
   return (

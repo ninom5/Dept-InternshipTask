@@ -5,9 +5,10 @@ import { CountriesList } from "@components/index";
 import s from "./countriesFetcher.module.css";
 
 export const CountriesFetcher = () => {
-  const { mutateAsync: fetchCountries } = useFetchCountries();
   const [limit, setLimit] = useState<number | undefined>(undefined);
   const [countries, setCountries] = useState<CountryType[]>([]);
+
+  const { mutateAsync: fetchCountries } = useFetchCountries();
 
   const handleClick = async () => {
     const data = await fetchCountries(limit);

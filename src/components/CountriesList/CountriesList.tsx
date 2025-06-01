@@ -11,7 +11,7 @@ export const CountriesList = ({ countries }: { countries: CountryType[] }) => {
         ))
       ) : (
         <em>
-          <h1>No countries available</h1>
+          <h1>No countries</h1>
         </em>
       )}
     </section>
