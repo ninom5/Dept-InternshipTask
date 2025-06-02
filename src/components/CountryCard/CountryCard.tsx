@@ -1,25 +1,30 @@
-import type { CountryType } from "types";
-import flagImg from "@assets/images/OIP.jpg";
 import s from "./countryCard.module.css";
-import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { useMapContext } from "@hooks/useMapContext";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useMapContext } from "@hooks/index";
+import { getFavorites } from "utils/index";
+import flagImg from "@assets/images/OIP.jpg";
+import type { CountryType } from "types";
 
 export const CountryCard = ({ country }: { country: CountryType }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const navigate = useNavigate();
-
   const { goToLocation, setLocation } = useMapContext();
 
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    const favorites = getFavorites();
     setIsFavorite(favorites.some((c: CountryType) => c.code === country.code));
   }, [country.code]);
 
   const handleGoToLocation = (e: React.MouseEvent) => {
     e.stopPropagation();
+
+    if (!window.google || !window.google.maps) {
+      toast.error("Google Maps API not loaded");
+      return;
+    }
 
     const geocoder = new google.maps.Geocoder();
 
@@ -44,9 +49,7 @@ export const CountryCard = ({ country }: { country: CountryType }) => {
   const handleAddToFav = (e: React.MouseEvent) => {
     e.stopPropagation();
 
-    const favorites: CountryType[] = JSON.parse(
-      localStorage.getItem("favorites") || "[]"
-    );
+    const favorites: CountryType[] = getFavorites();
     const isAlreadyFav = favorites.some((fav) => fav.code === country.code);
 
     if (

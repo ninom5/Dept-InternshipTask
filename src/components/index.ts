@@ -7,3 +7,4 @@ export * from "./CountryCard/CountryCard";
 export * from "./ErrorFallback/ErrorFallback";
 export * from "./Spinner/Spinner";
 export * from "./GoogleMap/GoogleMap";
+export * from "./GoogleMapsApiProvider/GoogleMapsApiProvider";

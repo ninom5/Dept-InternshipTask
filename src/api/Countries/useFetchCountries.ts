@@ -3,11 +3,8 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import type { CountriesListType } from "types";
 
-const fetchCountries = async (limit?: number) => {
-  const response = api.get<never, CountriesListType>(
-    `/api/countries?limit=${limit}`
-  );
-  return await response;
+const fetchCountries = (limit?: number) => {
+  return api.get<never, CountriesListType>(`/api/countries?limit=${limit}`);
 };
 
 export const useFetchCountries = () => {

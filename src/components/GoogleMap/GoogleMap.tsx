@@ -5,7 +5,7 @@ import {
   useMap,
 } from "@vis.gl/react-google-maps";
 import s from "./googleMap.module.css";
-import { useMapContext } from "@hooks/useMapContext";
+import { useMapContext } from "@hooks/index";
 import { useEffect, useState } from "react";
 import { getCountryByLocation } from "utils/getCountryByLocation.util";
 import { toast } from "react-toastify";

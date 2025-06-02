@@ -1,18 +1,19 @@
 import { CountriesFetcher, CountriesList, GoogleMap } from "@components/index";
 import s from "./countriesPage.module.css";
 import { useEffect, useState } from "react";
+import { getFavorites } from "utils";
 
 export const CountriesPage = () => {
   const [favoriteCountries, setFavoriteCountries] = useState([]);
 
   useEffect(() => {
-    const countries = JSON.parse(localStorage.getItem("favorites") || "[]");
+    const countries = getFavorites();
     setFavoriteCountries(countries);
   }, []);
 
   useEffect(() => {
     const update = () => {
-      const countries = JSON.parse(localStorage.getItem("favorites") || "[]");
+      const countries = getFavorites();
       setFavoriteCountries(countries);
     };
 

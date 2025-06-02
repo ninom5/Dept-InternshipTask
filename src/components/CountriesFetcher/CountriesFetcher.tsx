@@ -1,9 +1,9 @@
-import { useFetchCountries } from "@api/index";
-import type { CountryType } from "types";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import throttle from "lodash.throttle";
-import { CountriesList, Spinner } from "@components/index";
 import s from "./countriesFetcher.module.css";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useFetchCountries } from "@api/index";
+import { CountriesList, Spinner } from "@components/index";
+import type { CountryType } from "types";
+import throttle from "lodash.throttle";
 
 export const CountriesFetcher = () => {
   const [limit, setLimit] = useState<number | undefined>(undefined);
@@ -11,12 +11,12 @@ export const CountriesFetcher = () => {
 
   const { mutateAsync: fetchCountries, isPending } = useFetchCountries();
 
+  const throttleRef = useRef<ReturnType<typeof throttle>>(null);
+
   const handleClick = useCallback(async () => {
     const data = await fetchCountries(limit);
     setCountries(data.data);
   }, [fetchCountries, limit]);
-
-  const throttleRef = useRef<ReturnType<typeof throttle>>(null);
 
   useEffect(() => {
     throttleRef.current = throttle(() => {

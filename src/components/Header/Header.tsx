@@ -4,6 +4,7 @@ import s from "./header.module.css";
 
 export const Header = () => {
   const token = localStorage.getItem("jwt");
+
   const navigate = useNavigate();
 
   const handleLogout = () => {

@@ -62,7 +62,6 @@
     right: -30px;
   }
 }
-
 @media (max-width: 1100px) {
   .countryCard {
     width: auto;

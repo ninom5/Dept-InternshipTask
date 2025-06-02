@@ -11,9 +11,7 @@ export const api = axios.create({
 api.interceptors.request.use(async (config) => {
   const token = localStorage.getItem("jwt");
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+  if (token) config.headers.Authorization = `Bearer ${token}`;
 
   return config;
 });

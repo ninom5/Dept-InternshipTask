@@ -2,9 +2,8 @@ import { ErrorBoundary } from "react-error-boundary";
 import { Router } from "./Router";
 import { ToastContainer } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ErrorFallback } from "@components/index";
-import { GooglAPIProvider } from "@components/GoogleMapsApiProvider/GoogleMapsApiProvider";
-import { MapProvider } from "context/MapProvider";
+import { ErrorFallback, GooglAPIProvider } from "@components/index";
+import { MapProvider } from "context/index";
 
 function App() {
   const queryClient = new QueryClient();

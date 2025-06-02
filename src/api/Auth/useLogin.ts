@@ -10,7 +10,7 @@ interface JwtResponse {
   };
 }
 
-const login = async (loginData: LoginData) => {
+const login = (loginData: LoginData) => {
   return api.post<LoginData, JwtResponse>("/login", loginData);
 };
 
@@ -23,8 +23,9 @@ export const useLogin = () => {
       localStorage.setItem("jwt", responseData.data.token);
       toast.success("Successfully logged in");
     },
-    onError: (error: string) => {
-      toast.error(`Error: ${error}`);
+    onError: (error: unknown) => {
+      const message = error instanceof Error ? error.message : String(error);
+      toast.error(`Error: ${message}`);
     },
   });
 };
