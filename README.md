@@ -12,20 +12,24 @@ A simple React + TypeScript app to explore countries, mark your favorites, and v
 git clone https://github.com/ninom5/Dept-InternshipTask.git
 cd Dept-InternshipTask
 ```
-
-2.Install yarn if you don't have it
+2.Open the project in VSCode or any other IDE,
+to open in VSCode, run:
+```bash
+code .
+```
+3.Install yarn if you don't have it
 
 ```bash
 npm install -g yarn
 ```
 
-3.Install dependencies
+4.Install dependencies
 
 ```bash
 yarn install
 ```
 
-4.Set up environment variables
+5.Set up environment variables
 
 ```bash
 cp .env.example .env
@@ -33,7 +37,7 @@ cp .env.example .env
 
 and then add your google maps api key and map id to .env to use map functionalities
 
-5.Run app
+6.Run app
 
 ```bash
 yarn dev
