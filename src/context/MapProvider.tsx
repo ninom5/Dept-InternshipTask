@@ -3,9 +3,9 @@ import { MapContext } from "./MapContext";
 
 export const MapProvider: FC<PropsWithChildren> = ({ children }) => {
   const [map, setMap] = useState<google.maps.Map | null>(null);
+  const [location, setLocation] = useState<google.maps.LatLng | null>(null);
 
   const goToLocation = (location: google.maps.LatLng, zoom: number = 12) => {
-    console.log("aa" + location.lat());
     if (map) {
       map.setCenter(location);
       map.setZoom(zoom);
@@ -13,7 +13,9 @@ export const MapProvider: FC<PropsWithChildren> = ({ children }) => {
   };
 
   return (
-    <MapContext.Provider value={{ setMap, goToLocation }}>
+    <MapContext.Provider
+      value={{ setMap, goToLocation, location, setLocation }}
+    >
       {children}
     </MapContext.Provider>
   );

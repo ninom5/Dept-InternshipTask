@@ -20,13 +20,12 @@ export const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const response = login(loginData, {
+    login(loginData, {
       onSuccess: () => {
         setLoginData({ email: "", password: "" });
         navigate(routes.COUNTRIES);
       },
     });
-    console.log(response);
   };
 
   return (

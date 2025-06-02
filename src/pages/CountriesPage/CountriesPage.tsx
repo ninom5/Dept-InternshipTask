@@ -36,7 +36,7 @@ export const CountriesPage = () => {
       </div>
 
       <div className={s.favoriteListWrapper}>
-        <h2>Your favorite countries</h2>
+        <h2 className={s.favoriteListHeading}>Your favorite countries</h2>
         <CountriesList countries={favoriteCountries} />
       </div>
     </section>

@@ -1,16 +1,34 @@
-import { Map, useMap } from "@vis.gl/react-google-maps";
+import {
+  AdvancedMarker,
+  InfoWindow,
+  Map,
+  useMap,
+} from "@vis.gl/react-google-maps";
 import s from "./googleMap.module.css";
 import { useMapContext } from "@hooks/useMapContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getCountryByLocation } from "utils/getCountryByLocation.util";
+import { toast } from "react-toastify";
 
 export const GoogleMap = () => {
-  const { setMap } = useMapContext();
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+
+  const { location, setMap } = useMapContext();
   const map = useMap();
 
   useEffect(() => {
-    console.log("map from useMap():", map);
     if (map && setMap) setMap(map);
   }, [map, setMap]);
+
+  const handleMarkerClick = (e: google.maps.MapMouseEvent) => {
+    const location = e.latLng;
+    if (!location) {
+      toast.error("Can't ge location");
+      return;
+    }
+
+    getCountryByLocation(location, setSelectedCountry);
+  };
 
   return (
     <section className={s.mapWrapper}>
@@ -23,7 +41,27 @@ export const GoogleMap = () => {
           fullscreenControl={false}
           streetViewControl={false}
           cameraControl={false}
-        />
+        >
+          {location && (
+            <AdvancedMarker
+              position={{ lat: location.lat(), lng: location.lng() }}
+              onClick={(e) => handleMarkerClick(e)}
+            />
+          )}
+
+          {selectedCountry && (
+            <InfoWindow
+              position={location}
+              onClose={() => setSelectedCountry(null)}
+              className={s.infoWindow}
+            >
+              <h2>
+                Country:{" "}
+                <span className={s.infoWindowCountry}> {selectedCountry} </span>
+              </h2>
+            </InfoWindow>
+          )}
+        </Map>
       </div>
     </section>
   );

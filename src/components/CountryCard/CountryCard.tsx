@@ -11,7 +11,7 @@ export const CountryCard = ({ country }: { country: CountryType }) => {
 
   const navigate = useNavigate();
 
-  const { goToLocation } = useMapContext();
+  const { goToLocation, setLocation } = useMapContext();
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
@@ -21,7 +21,6 @@ export const CountryCard = ({ country }: { country: CountryType }) => {
   const handleGoToLocation = (e: React.MouseEvent) => {
     e.stopPropagation();
 
-    console.log("aa");
     const geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({ address: country.name }, (result, status) => {
@@ -37,6 +36,7 @@ export const CountryCard = ({ country }: { country: CountryType }) => {
         return;
       }
 
+      setLocation(location);
       goToLocation(location, 7);
     });
   };

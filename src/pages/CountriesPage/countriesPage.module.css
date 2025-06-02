@@ -14,6 +14,7 @@
   padding: 20px;
   width: 40%;
 }
-.favoriteListWrapper h2 {
-  text-align: center;
+.favoriteListHeading {
+  padding-left: 40px;
+  color: var(--accent-color);
 }
