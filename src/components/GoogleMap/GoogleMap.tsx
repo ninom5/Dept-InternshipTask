@@ -56,7 +56,7 @@ export const GoogleMap = () => {
               className={s.infoWindow}
             >
               <h2>
-                Country:{" "}
+                Country:
                 <span className={s.infoWindowCountry}> {selectedCountry} </span>
               </h2>
             </InfoWindow>

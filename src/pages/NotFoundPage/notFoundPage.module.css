@@ -30,6 +30,6 @@
   transition: 0.7s;
 }
 .buttonWrapper button:hover {
-  background-color: black;
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--text-color);
 }
