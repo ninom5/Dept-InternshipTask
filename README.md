@@ -14,15 +14,27 @@ cd Dept-InternshipTask
 ```
 
 2.Install yarn if you don't have it
+
+```bash
 npm install -g yarn
+```
 
 3.Install dependencies
+
+```bash
 yarn install
+```
 
 4.Set up environment variables
+
+```bash
 cp .env.example .env
+```
 
 and then add your google maps api key and map id
 
 5.Run app
+
+```bash
 yarn dev
+```
