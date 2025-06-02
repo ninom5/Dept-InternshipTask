@@ -31,7 +31,7 @@ yarn install
 cp .env.example .env
 ```
 
-and then add your google maps api key and map id
+and then add your google maps api key and map id to .env to use map functionalities
 
 5.Run app
 
